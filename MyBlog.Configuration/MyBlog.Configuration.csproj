@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AC42B652-B9C2-4A9B-A24F-39FACD91F9C8}</ProjectGuid>
+    <ProjectGuid>{DF8BBC27-1886-4F47-9E84-4CAEC2777113}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyBlog.CoreLogic</RootNamespace>
-    <AssemblyName>MyBlog.CoreLogic</AssemblyName>
+    <RootNamespace>MyBlog.Configuration</RootNamespace>
+    <AssemblyName>MyBlog.Configuration</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,17 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthLogic.cs" />
+    <Compile Include="DI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlog.CoreLogic\MyBlog.CoreLogic.csproj">
+      <Project>{ac42b652-b9c2-4a9b-a24f-39facd91f9c8}</Project>
+      <Name>MyBlog.CoreLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyBlog.DalContracts\MyBlog.DalContracts.csproj">
       <Project>{E94B7134-D335-43E8-8137-439A4892D92A}</Project>
       <Name>MyBlog.DalContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyBlog.LogicContracts\MyBlog.LogicContracts.csproj">
-      <Project>{7BD33374-D73A-43FA-8572-BD9F2EADC9C2}</Project>
+      <Project>{7bd33374-d73a-43fa-8572-bd9f2eadc9c2}</Project>
       <Name>MyBlog.LogicContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyBlog.SqlDal\MyBlog.SqlDal.csproj">
+      <Project>{3A36A33A-5B64-40C4-8394-F78C7B727898}</Project>
+      <Name>MyBlog.SqlDal</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,7 @@ namespace My_blog.Controllers
 {
     public class ArticleController : Controller
     {
+        private const string AdminRolesString = RoleNames.Admins + "," + RoleNames.Psychologist;
         // GET: Article
         public ActionResult Index()
         {
@@ -79,7 +80,10 @@ namespace My_blog.Controllers
             }
             return View(article);
         }
+
+        [Authorize(Roles = AdminRolesString)]
         [HttpPost, ActionName("Delete")]
+
         public ActionResult DeleteConfirmed(Article article)
         {
             Article Article = ArticleRepository.Articles.FirstOrDefault(n => n.ID == article.ID);

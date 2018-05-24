@@ -1,6 +1,12 @@
 ﻿@model IEnumerable<My_blog.Models.Attachment>
-<ul>
-    <li>
-        
-    </li>
-</ul>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3">
+            <a href="@Url.Action("Download", new { item.Id })">
+                @{ var imgSrc = item.ContentType.StartsWith("image/") ? Url.Action("Show", new { item.Id }) : Url.Content("~/Content/noimage.png"); }
+                <img src="@imgSrc" class="img-responsive img-rounded" />
+            </a>
+        </div>
+    }
+</div>

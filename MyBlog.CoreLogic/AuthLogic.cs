@@ -1,14 +1,30 @@
-﻿using MyBlog.LogicContracts;
+﻿using MyBlog.DalContracts;
+using MyBlog.LogicContracts;
 
 namespace MyBlog.CoreLogic
 {
     public class AuthLogic : IAuthLogic
     {
-       
-           
-public bool CanAuthenticate(string login, string password)
+        private readonly IUsersDao _usersDao;
+
+        public AuthLogic(IUsersDao usersDao)
         {
-            throw new System.NotImplementedException();
+            _usersDao = usersDao;
+        }
+
+        public bool CanAuthenticate(string login, string password)
+        {
+            if (string.IsNullOrWhiteSpace(login))
+            {
+                return false;
+            }
+
+            if (password == null)
+            {
+                return false;
+            }
+
+            return _usersDao.IsExists(login, password);
         }
     }
 }

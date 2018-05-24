@@ -11,7 +11,7 @@ namespace My_blog.Models
         public string Username { get; set; }
         public byte YOB { get; set; }
         public string Email { get; set; }
-        public double Workexperience { get; set; }
+        public string Workexperience { get; set; }
         public string Education { get; set; }
         public string Specialization { get; set; }
         public string Avatar { get; set; }

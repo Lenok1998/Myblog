@@ -11,6 +11,6 @@ namespace My_blog.Models
         public Guid Senderid { get; set; }
         public Guid Receiverid { get; set; }
         public DateTime Departuredate { get; set; }
-
+        public DateTime receive { get; set; }
     }
 }
